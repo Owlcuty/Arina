@@ -66,5 +66,5 @@ ssize_t calc_func(double *sum, double x, double eps, double (*func)(double x, si
 		
 	}
 
-	return n;
+	return n - 1;
 }
