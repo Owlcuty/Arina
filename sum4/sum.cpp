@@ -57,19 +57,13 @@ ssize_t calc_func(double *sum, double x, double eps, double (*func)(double x, si
 
 	*sum = 0;
 	size_t n = 1;
-	double prev_a = func(x, n++);
-	double cur_a = func(x, n++);
-	std::cout << prev_a << " " << *sum << "\n";
-	std::cout << cur_a << " " << *sum << "\n";
-	(*sum) += prev_a + cur_a;
+	double cur = func(x, n++);
 
-	while (fabs(cur_a - prev_a) > eps)
+	while (fabs(cur) > eps)
 	{
-		prev_a = cur_a;
-		cur_a = func(x, n++);
-		(*sum) += cur_a;
+		(*sum) += cur;
+		cur = func(x, n++);
 		
-//		std::cout << cur_a << " " << *sum << "\n";
 	}
 
 	return n;
