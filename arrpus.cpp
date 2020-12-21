@@ -54,11 +54,11 @@ void bubble_sort(double *arr, size_t size)
 {
 	for (size_t y = 0; y < size; ++y)
 	{
-		for (size_t x = 0; x < size; ++x)
+		for (size_t x = 1; x < size; ++x)
 		{
-			if (arr[y] < arr[x])
+			if (arr[x] < arr[x - 1])
 			{
-				std::swap(arr[x], arr[y]);
+				std::swap(arr[x], arr[x - 1]);
 			}
 		}
 	}
